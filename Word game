@@ -6,15 +6,12 @@ animals = [
     ["amphibians", [["frog"], ["salamander"], ["newt"]]],
     ["fish", [["goldfish"], ["shark"], ["salmon"], ["tuna"]]],
 ]
-celebrities = [["actor", [["leonardo"], ["denzel"], ["meryl"], ["eminem"],["drake"],['Johnny Depp'],['Brad Pitt'], ["emma"]]]]
+celebrities = [["actor", [["leonardo"], ["denzel"], ["meryl"], ["eminem"],["drake"],["johnny depp"],["brad pit"], ["emma"]]]]
 
 word_found = []
-additonal_lord = list(word_found)
 randomized_letter = []
 import random
-import string
 secret_found = False
-is_found = False
 if type == 'animals':
     animal_type = input('What classification is the animal: mammals, birds, reptiles, amphibians, fish\n')
     
