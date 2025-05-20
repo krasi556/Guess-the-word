@@ -33,10 +33,15 @@ print()
 while True:
         letter_not_found = False
         letter = input('\nTry a letter:\n')
+    if len(letter) == 1 and letter.isalpha():
         if letter in secret:
-            if letter in secret:
-                if letter not in word_found:
-                    word_found.append(letter)
+            if letter not in word_found:
+                word_found.append(letter)
+        else:
+            letter_not_found = True
+    else:
+        print('Invalid input. Please enter a single letter.')
+        continue
         else:
             letter_not_found = True
         secret_word_ = ''
