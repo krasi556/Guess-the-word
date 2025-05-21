@@ -6,7 +6,8 @@ animals = [
     ["amphibians", [["frog"], ["salamander"], ["newt"]]],
     ["fish", [["goldfish"], ["shark"], ["salmon"], ["tuna"]]],
 ]
-celebrities = [["actor", [["leonardo"], ["denzel"], ["meryl"], ["eminem"],["drake"],["johnny depp"],["brad pit"], ["emma"]]]]
+
+celebrities = [["actor", [["leonardo"], ["denzel"], ["meryl"], ["eminem"],["drake"], ["emma"]]]]
 
 word_found = []
 randomized_letter = []
