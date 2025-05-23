@@ -6,7 +6,7 @@ animals = [
     ["amphibians", [["frog"], ["salamander"], ["newt"]]],
     ["fish", [["goldfish"], ["shark"], ["salmon"], ["tuna"]]],
 ]
-
+celebrities_gender = {'leonardo':'👨','denzel':'👨','eminem':'👨','meryl':'👩','drake':'👨','emma':'👩'}
 celebrities = [["actor", [["leonardo"], ["denzel"], ["meryl"], ["eminem"], ["drake"], ["emma"]]]]
 animals_emoji = {'bunny': '🐰',
                  'tiger': '🐯',
@@ -29,7 +29,6 @@ animals_emoji = {'bunny': '🐰',
 word_found = []
 randomized_letter = []
 import random
-import emoji
 
 secret_found = False
 if type == 'animals':
@@ -66,29 +65,31 @@ while True:
     element_stored = ''
     if letter_not_found:
         print(f'There\'s no "{letter}" there')
-        help = input('Do you want a letter to be revealed?\nyes / no')
+        help = input('Do you want a letter to be revealed?\nyes / no\n')
         if help == 'yes':
-            if word_found:
                 for ch in secret:
                     if ch not in word_found:
                         randomized_letter.append(ch)
                 if randomized_letter:
-                    new_letter = random.choice(randomized_letter)
-                    word_found.append(new_letter)
-            else:
-                word_found.append(secret[0])
-    for j in secret:
-        if j in word_found:
-            secret_word_ += j
-    if secret == secret_word_:
-        emoji_output = animals_emoji.get(secret)
-        print(f'The secret word is: {secret}')
-        
-        secret_found = True
-        break
+                    for i in randomized_letter:
+                        if i not in word_found:
+                            word_found.append(i)
+                            break
+                else:
+                    word_found.append(secret[0])
     for i in secret:
         if i in word_found:
             element_stored += i
         else:
             element_stored += '_'
-    print(f'The word is with lenght: {element_stored}')
+    if secret == element_stored:
+        emoji_output = ''
+        if type == 'animals':
+            emoji_output = animals_emoji.get(secret)
+        elif type == 'celebrities':
+            emoji_output = celebrities_gender.get(secret)
+        print(f'The secret word is:  \033[32m{secret}\033[0m{emoji_output}')
+        secret_found = True
+        break
+    if not secret_found:
+        print(f'The word is with length: {element_stored}')
